@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Specialized;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -14,13 +16,26 @@ namespace TeamCardiffSlack
     {
         [FunctionName("HttpExample")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] SlackRequest request,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
-            log.LogInformation($"Text: {request.Text}");
+            string requestBody = String.Empty;
+            using (StreamReader streamReader =  new  StreamReader(req.Body))
+            {
+                requestBody = await streamReader.ReadToEndAsync();
+            }
 
-            switch (request.Text)
+            var data = requestBody.Split("&");
+
+            var textParam = data.FirstOrDefault(x => x.StartsWith("text="));
+
+            var text = textParam.Replace("text=", "").Trim();
+            
+            
+            log.LogInformation("C# HTTP trigger function processed a request.");
+            log.LogInformation($"Text: {text}");
+
+            switch (text)
             {
                 case "London":
                     return new OkObjectResult(await File.ReadAllTextAsync("Offices/london.json"));
