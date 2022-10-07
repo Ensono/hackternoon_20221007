@@ -85,6 +85,7 @@ namespace TeamCardiffSlack
 
             return new OkObjectResult(new
             {
+                Response_type="in_channel",
                 blocks
             });
         }
