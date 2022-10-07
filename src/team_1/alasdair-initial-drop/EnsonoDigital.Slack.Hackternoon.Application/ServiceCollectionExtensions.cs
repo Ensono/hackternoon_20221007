@@ -16,6 +16,7 @@ namespace EnsonoDigital.Slack.Hackternoon.Application
 
             services.AddSingleton(slackTaskClient);
             services.AddSingleton<IBotClient, BotClient>();
+            services.AddSingleton<IBobClient, BobClientMock>();
         }
     }
 }

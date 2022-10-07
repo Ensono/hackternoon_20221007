@@ -34,5 +34,27 @@ namespace EnsonoDigital.Slack.Hackternoon.Api.Controllers
 
             return Accepted();
         }
+
+        [HttpPost]
+        [Route("ListMembersInChannelCommand")]
+        public async Task<IActionResult> ListMembersInChannelCommand()
+        {
+            var channel = Request.Form["channel_name"].First();
+
+            await _botClient.ListMembersInChannel(channel);
+
+            return Ok();
+        }
+
+        [HttpPost]
+        [Route("ListMembersOutOfOfficeCommand")]
+        public async Task<IActionResult> ListMembersOutOfOfficeCommand()
+        {
+            var channel = Request.Form["channel_name"].First();
+
+            await _botClient.ListMembersOutOfOfficeCommand(channel);
+
+            return Ok();
+        }
     }
 }
