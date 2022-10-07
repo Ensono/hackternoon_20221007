@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"Message\": \"Hello world\"\r\n}",
+					"raw": "{\r\n    \"Channel\": \"#hackternoon-team1\",\r\n    \"Message\": \"Test message\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
