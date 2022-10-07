@@ -20,10 +20,17 @@ namespace TeamCardiffSlack
             log.LogInformation("C# HTTP trigger function processed a request.");
             log.LogInformation($"Text: {request.Text}");
 
-            string responseMessage =
-                $"Text supplied: {request.Text}";
-
-            return new OkObjectResult(responseMessage);
+            switch (request.Text)
+            {
+                case "London":
+                    return new OkObjectResult(await File.ReadAllTextAsync("Offices/london.json"));
+                case "Cardiff":
+                    return new OkObjectResult(await File.ReadAllTextAsync("Offices/cardiff.json"));
+                case "Manchester":
+                    return new OkObjectResult(await File.ReadAllTextAsync("Offices/manchester.json"));
+                default:
+                    return new OkObjectResult("404 Office not found");
+            }
         }
     }
 }
