@@ -12,17 +12,20 @@ namespace EnsonoDigital.Slack.Hackternoon.Application
         {
             return new List<BobEmployee>
             {
-                new BobEmployee
+                new ()
                 {
-                    Email = "alasdair.stark@ensono.com"
+                    Email = "alasdair.stark@ensono.com",
+                    Competency = "Connected Services"
                 },
-                new BobEmployee()
+                new ()
                 {
-                    Email = "vishal.sharma@ensono.com"
+                    Email = "andy.durkan@ensono.com",
+                    Competency = "Data Engineering"
                 },
-                new BobEmployee()
+                new ()
                 {
-                    Email = "alan@ensono.com"
+                    Email = "alan.walsh@ensono.com",
+                    Competency = "Snowsports Division"
                 }
             };
         }

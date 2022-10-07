@@ -48,8 +48,13 @@ namespace EnsonoDigital.Slack.Hackternoon.Application
             var conversation = conversationsListResponse.channels.First(c => c.name == channel);
             var conversationMembers = await _slackTaskClient.GetConversationsMembersAsync(conversation.id);
 
+            var numberOfPeopleInTeam = conversationMembers.members.Length;
+            var numberOfPeopleOff = 0;
+
             var response = new List<string>();
-            var outOfOfficeEmailAddresses = _bobClient.GetOutOfOfficeEmployees().Select(e => e.Email.ToLower());
+            response.Add("Here is a summary of team members who are out of office:" + Environment.NewLine);
+            var bobUsers = _bobClient.GetOutOfOfficeEmployees();
+            var outOfOfficeEmailAddresses = bobUsers.Select(e => e.Email.ToLower());
 
             foreach (var conversationMember in conversationMembers.members)
             {
@@ -57,9 +62,16 @@ namespace EnsonoDigital.Slack.Hackternoon.Application
 
                 if (outOfOfficeEmailAddresses.Contains(user.profile.email.ToLower()))
                 {
-                    response.Add(user.profile.email);
+                    var bobUser = bobUsers.First(b => b.Email.ToLower() == user.profile.email.ToLower());
+
+                    numberOfPeopleOff++;
+                    response.Add($"Email: {bobUser.Email}, Competency: {bobUser.Competency}");
                 }
             }
+
+            int percentageOfTeamOff = 100 * numberOfPeopleOff / numberOfPeopleInTeam;
+
+            response.Add(Environment.NewLine + $"{percentageOfTeamOff}% of the team is out of office.");
 
             var channelMembersMessage = string.Join(Environment.NewLine, response);
 
