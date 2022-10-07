@@ -6,7 +6,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "APPINSIGHTS_INSTRUMENTATIONKEY": "199742d3-b1c9-42f4-94af-dfe337c179a9",
-        "SlackConfig__OAuthToken": "xoxb-2443201735-4192308822356-FdtF6w7vwEC8yFWZHBqbop6R",
+        "SlackConfig__OAuthToken": "<token-is-in-slack-channel>",
         "Kestrel__Endpoints__Http__Url": "http://localhost:5001"
       }
     },
