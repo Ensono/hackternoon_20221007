@@ -25,5 +25,14 @@ namespace EnsonoDigital.Slack.Hackternoon.Api.Controllers
 
             return Accepted();
         }
+
+        [HttpPost]
+        [Route("ListMemberInChannel")]
+        public async Task<IActionResult> ListMemberInChannel(ListMembersInChannelModel requestModel)
+        {
+            await _botClient.ListMembersInChannel(requestModel.Channel);
+
+            return Accepted();
+        }
     }
 }

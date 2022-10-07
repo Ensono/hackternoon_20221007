@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"Channel\": \"#hackternoon-team1\",\r\n    \"Message\": \"Test message\"\r\n}",
+					"raw": "{\r\n    \"Channel\": \"hackternoon-team1\",\r\n    \"Message\": \"Test message\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -30,6 +30,35 @@
 					"path": [
 						"Bot",
 						"SendMessageToChat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Members in Channel",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Channel\": \"hackternoon-team1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/Bot/ListMembersInChannel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"Bot",
+						"ListMembersInChannel"
 					]
 				}
 			},
