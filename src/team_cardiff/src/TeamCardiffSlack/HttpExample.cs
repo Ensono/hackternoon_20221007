@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Specialized;
+using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +14,10 @@ namespace TeamCardiffSlack
 {
     public static class HttpExample
     {
+        public record AttractionDataFile(AttractionData[] Data);
+
+        public record AttractionData(string Name);
+
         [FunctionName("HttpExample")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
@@ -35,17 +39,53 @@ namespace TeamCardiffSlack
             log.LogInformation("C# HTTP trigger function processed a request.");
             log.LogInformation($"Text: {text}");
 
-            switch (text)
+            string attractions;
+
+            switch (request.Text)
             {
-                case "London":
-                    return new OkObjectResult(await File.ReadAllTextAsync("Offices/london.json"));
-                case "Cardiff":
-                    return new OkObjectResult(await File.ReadAllTextAsync("Offices/cardiff.json"));
-                case "Manchester":
-                    return new OkObjectResult(await File.ReadAllTextAsync("Offices/manchester.json"));
+                case "london":
+                    attractions = await File.ReadAllTextAsync("Offices/london.json");
+                    break;
+                case "cardiff":
+                    attractions = await File.ReadAllTextAsync("Offices/cardiff.json");
+                    break;
+                case "manchester":
+                    attractions = await File.ReadAllTextAsync("Offices/manchester.json");
+                    break;
                 default:
                     return new OkObjectResult("404 Office not found");
             }
+
+            var parsedAttractions = JsonConvert.DeserializeObject<AttractionDataFile>(attractions).Data;
+
+            var blocks = new List<object>
+            {
+                new
+                {
+                    Type = "header",
+                    Text = new
+                    {
+                        Type = "plain_text",
+                        Text = "Recommendations near " + request.Text
+                    }
+                }
+            };
+
+            blocks.AddRange(parsedAttractions
+                .Select(pa => new
+                {
+                    Type = "section",
+                    Text = new
+                    {
+                        Type = "plain_text",
+                        Text = pa.Name
+                    }
+                }));
+
+            return new OkObjectResult(new
+            {
+                blocks
+            });
         }
     }
 }
