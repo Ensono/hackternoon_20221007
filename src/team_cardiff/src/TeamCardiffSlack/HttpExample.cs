@@ -17,7 +17,9 @@ namespace TeamCardiffSlack
     {
         public record AttractionDataFile(AttractionData[] Data);
 
-        public record AttractionData(string Name);
+        public record AttractionData(string Name, int Distance, [param:JsonProperty("address_obj")]AddressObj Address);
+        
+        public record AddressObj(string Street1, string Street2, string City, string Postalcode, string Phone);
 
         [FunctionName("HttpExample")]
         public static async Task<IActionResult> Run(
@@ -71,16 +73,72 @@ namespace TeamCardiffSlack
                     }
                 }
             };
-
+            
             blocks.AddRange(parsedAttractions
-                .Select(pa => new
+                .SelectMany(pa =>
                 {
-                    Type = "section",
-                    Text = new
+
+                    var addressStr = new List<string>
                     {
-                        Type = "plain_text",
-                        Text = pa.Name
-                    }
+                        pa.Address.Street1,
+                        pa.Address.Street2,
+                        pa.Address.City,
+                        pa.Address.Postalcode
+                    };
+
+                    var add = addressStr.Where(x => !string.IsNullOrEmpty(x)).ToArray();
+
+                    return new object[]
+                    {
+                        new
+                        {
+                            Type = "header",
+                            Text = new
+                            {
+                                Type = "plain_text",
+                                Text = pa.Name
+                            }
+                        },
+                        new
+                        {
+                            Type = "section",
+                            Text = new
+                            {
+                                Type = "mrkdwn",
+                                Text = $"*Address:*\n{string.Join("\n",add)}"
+                            },
+                            Accessory = new
+                            {
+                                Type = "button",
+                                Text = new
+                                {
+                                    Type = "plain_text",
+                                    Text = "Directions"
+                                },
+                                Value = "Click",
+                                Url = $"https://www.google.co.uk/maps/place/{string.Join("+",add.Select(i => i.Replace(" ", "+")))}",
+                                Action_id = "button-action"
+                            }
+                        },
+                        new
+                        {
+                            Type = "section",
+                            Text = new
+                            {
+                                Type = "mrkdwn",
+                                Text = $"*Phone:* {pa.Address.Phone}"
+                            }
+                        },
+                        new
+                        {
+                            Type = "section",
+                            Text = new
+                            {
+                                Type = "mrkdwn",
+                                Text = $"*Distance:* {pa.Distance} mile"
+                            }
+                        },
+                    };
                 }));
 
             return new OkObjectResult(new
