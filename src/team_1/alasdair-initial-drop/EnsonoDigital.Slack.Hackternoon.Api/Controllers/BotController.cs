@@ -27,8 +27,8 @@ namespace EnsonoDigital.Slack.Hackternoon.Api.Controllers
         }
 
         [HttpPost]
-        [Route("ListMemberInChannel")]
-        public async Task<IActionResult> ListMemberInChannel(ListMembersInChannelModel requestModel)
+        [Route("ListMembersInChannel")]
+        public async Task<IActionResult> ListMembersInChannel(ListMembersInChannelModel requestModel)
         {
             await _botClient.ListMembersInChannel(requestModel.Channel);
 
