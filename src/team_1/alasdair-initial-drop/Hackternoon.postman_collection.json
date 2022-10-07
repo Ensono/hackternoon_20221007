@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "270e6bc4-662e-40cd-88ba-db35a0eb9e53",
+		"name": "Hackternoon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17239838"
+	},
+	"item": [
+		{
+			"name": "Send Message",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Message\": \"Hello world\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/Bot/SendMessageToChat",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"Bot",
+						"SendMessageToChat"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
