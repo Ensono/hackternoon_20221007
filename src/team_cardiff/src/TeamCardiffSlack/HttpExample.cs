@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Dynamic;
 using System.IO;
 using System.Linq;
@@ -41,7 +42,7 @@ namespace TeamCardiffSlack
 
             string attractions;
 
-            switch (request.Text)
+            switch (text.ToLowerInvariant())
             {
                 case "london":
                     attractions = await File.ReadAllTextAsync("Offices/london.json");
@@ -66,7 +67,7 @@ namespace TeamCardiffSlack
                     Text = new
                     {
                         Type = "plain_text",
-                        Text = "Recommendations near " + request.Text
+                        Text = "Recommendations near " + text
                     }
                 }
             };
