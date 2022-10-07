@@ -45,13 +45,13 @@ namespace TeamCardiffSlack
             switch (text.ToLowerInvariant())
             {
                 case "london":
-                    attractions = await File.ReadAllTextAsync("Offices/london.json");
+                    attractions = Offices.London;
                     break;
                 case "cardiff":
-                    attractions = await File.ReadAllTextAsync("Offices/cardiff.json");
+                    attractions = Offices.Cardiff;
                     break;
                 case "manchester":
-                    attractions = await File.ReadAllTextAsync("Offices/manchester.json");
+                    attractions = Offices.Manchester;
                     break;
                 default:
                     return new OkObjectResult("404 Office not found");
