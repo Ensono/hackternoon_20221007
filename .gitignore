@@ -500,3 +500,8 @@ src/shared/
 **/appsettings.Development.json
 **/.env
 /src/workers/anti-corruption-collector/Next.Product.AntiCorruption.Collector.ComponentTests/Features/**/*.feature.cs
+
+output
+.DS_Store
+envfile
+
