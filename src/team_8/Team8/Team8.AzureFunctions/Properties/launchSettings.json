@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Team8.AzureFunctions": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7291",
+      "launchBrowser": false
+    }
+  }
+}
