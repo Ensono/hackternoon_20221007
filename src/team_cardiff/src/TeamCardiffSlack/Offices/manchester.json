@@ -1,0 +1,61 @@
+{
+  "data": [
+        {
+            "location_id": 1,
+            "name": "Rain Bar",
+            "distance": 1,
+            "rating": 3.5,
+            "bearing": 1,
+            "address_obj": {
+                "street1": "80 Great Bridgewater Street",
+                "street2": "",
+                "city": "Manchester",
+                "state": "",
+                "country": "UK",
+                "postalcode": "M1 5JG",
+                "address_string": "",
+                "phone": "",
+                "latitude": "",
+                "longitude": ""
+            }
+        },
+        {
+            "location_id": 2,
+            "name": "Hudson Social",
+            "distance": 2,
+            "rating": 4,
+            "bearing": 1,
+            "address_obj": {
+                "street1": "50 Pall Mall",
+                "street2": "",
+                "city": "Manchester",
+                "state": "",
+                "country": "UK",
+                "postalcode": "M2 1AQ",
+                "address_string": "",
+                "phone": "",
+                "latitude": "",
+                "longitude": ""
+            }
+        },
+        {
+            "location_id": 3,
+            "name": "The Botanist Manchester",
+            "distance": 4,
+            "rating": 5,
+            "bearing": 1,
+            "address_obj": {
+                "street1": "78 Deansgate",
+                "street2": "",
+                "city": "Manchester",
+                "state": "",
+                "country": "UK",
+                "postalcode": "M3 2FW",
+                "address_string": "",
+                "phone": "",
+                "latitude": "",
+                "longitude": ""
+            }
+        }
+    ]
+}

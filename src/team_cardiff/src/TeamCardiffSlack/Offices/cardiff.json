@@ -1,0 +1,61 @@
+{
+  "data": [
+        {
+            "location_id": 1,
+            "name": "The Clink Restaurant Cardiff",
+            "distance": 1,
+            "rating": 3.5,
+            "bearing": 1,
+            "address_obj": {
+                "street1": "HMP",
+                "street2": "Knox Road",
+                "city": "Cardiff",
+                "state": "",
+                "country": "UK",
+                "postalcode": "CF24 0UG",
+                "address_string": "",
+                "phone": "020 7256 3240",
+                "latitude": "",
+                "longitude": ""
+            }
+        },
+        {
+            "location_id": 2,
+            "name": "Steak of the Art",
+            "distance": 2,
+            "rating": 4,
+            "bearing": 1,
+            "address_obj": {
+                "street1": "Ground Floor",
+                "street2": "Helmont House",
+                "city": "Cardiff",
+                "state": "",
+                "country": "UK",
+                "postalcode": "CF10 2HE",
+                "address_string": "",
+                "phone": "020 3957 5555",
+                "latitude": "",
+                "longitude": ""
+            }
+        },
+        {
+            "location_id": 3,
+            "name": "Lilo's Pasta",
+            "distance": 4,
+            "rating": 5,
+            "bearing": 1,
+            "address_obj": {
+                "street1": "18 Newport Road",
+                "street2": "",
+                "city": "Cardiff",
+                "state": "",
+                "country": "UK",
+                "postalcode": "CF24 0DB",
+                "address_string": "",
+                "phone": "",
+                "latitude": "",
+                "longitude": ""
+            }
+        }
+    ]
+}
