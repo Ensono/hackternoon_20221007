@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "EnsonoDigital.Slack.Hackternoon.Api": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "APPINSIGHTS_INSTRUMENTATIONKEY": "199742d3-b1c9-42f4-94af-dfe337c179a9",
+        "SlackConfig__OAuthToken": "<token-is-in-slack-channel>",
+        "Kestrel__Endpoints__Http__Url": "http://localhost:5001"
+      }
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "publishAllPorts": true
+    }
+  }
+}

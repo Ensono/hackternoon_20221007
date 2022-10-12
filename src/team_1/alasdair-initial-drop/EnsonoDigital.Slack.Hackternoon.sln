@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnsonoDigital.Slack.Hackternoon.Api", "EnsonoDigital.Slack.Hackternoon.Api\EnsonoDigital.Slack.Hackternoon.Api.csproj", "{340FE6BA-2BB7-46EB-A8D6-72102F8AD83C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnsonoDigital.Slack.Hackternoon.Application", "EnsonoDigital.Slack.Hackternoon.Application\EnsonoDigital.Slack.Hackternoon.Application.csproj", "{35006D6C-1E82-47B0-A726-42EF45853BAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{340FE6BA-2BB7-46EB-A8D6-72102F8AD83C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{340FE6BA-2BB7-46EB-A8D6-72102F8AD83C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{340FE6BA-2BB7-46EB-A8D6-72102F8AD83C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{340FE6BA-2BB7-46EB-A8D6-72102F8AD83C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35006D6C-1E82-47B0-A726-42EF45853BAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35006D6C-1E82-47B0-A726-42EF45853BAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35006D6C-1E82-47B0-A726-42EF45853BAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35006D6C-1E82-47B0-A726-42EF45853BAC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {336C9C37-ABC3-4820-8EA9-1E94A7521D5B}
+	EndGlobalSection
+EndGlobal
